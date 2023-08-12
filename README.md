@@ -16,7 +16,7 @@ My solutions to labs and problem sets for [Harvard's CS50x 2023](https://cs50.ha
 
 ### Problem Set 0
 
-* [Planet Impack](week0/pset0/Planet-Impact.sb3)
+* [Planet Impact](week0/pset0/Planet-Impact.sb3)
 
 ## Week 1
 
