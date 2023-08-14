@@ -2,6 +2,7 @@
   Harvard CS50x - 2023
 </h1>
 
+## Description
 
 My solutions to labs and problem sets for [Harvard's CS50x 2023](https://cs50.harvard.edu/x/2023/), per the below.
 
