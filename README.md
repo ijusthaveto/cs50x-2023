@@ -1,10 +1,14 @@
-# cs50x-2023
+<h1 align="center">
+  Harvard CS50x - 2023
+</h1>
+
+
 My solutions to labs and problem sets for [Harvard's CS50x 2023](https://cs50.harvard.edu/x/2023/), per the below.
 
 ## Table of Contents
 
-- [Week 0: Scratch](#Week 0)
-- [Week 1: C](#Week 1)
+- [Week 0: Scratch](#week-0)
+- [Week 1: C](#week-1)
 
 
 
@@ -12,7 +16,7 @@ My solutions to labs and problem sets for [Harvard's CS50x 2023](https://cs50.ha
 
 ### Problem Set 0
 
-* [Planet Impack](week0/pset0/Planet Impact.sb3)
+* [Planet Impact](week0/pset0/Planet-Impact.sb3)
 
 ## Week 1
 
