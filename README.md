@@ -45,6 +45,7 @@ My solutions to labs and problem sets for [Harvard's CS50x 2023](https://cs50.ha
 * [Bulbs](week2/pset2/bulbs.c)
 * [Caesar](week2/pset2/caesar.c)
 * [Substitution](week2/pset2/substitution.c)
+* [Wordle](week2/pset2/wordle.c)
 
 
 
