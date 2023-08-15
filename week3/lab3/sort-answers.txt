@@ -1,0 +1,21 @@
+sort1 uses: Bubble Sort
+
+How do you know?: When the test data itself is ordered, sorting algorithm 1 is the fastest, while
+
+when the test data is in reverse order, sorting algorithm 1 is much solwer. This undoubtedly aligns
+
+with the characteristics of bubble sort.
+
+sort2 uses: Merge Sort
+
+How do you know?: When testing the three algorithm with randomly ordered test data, the performance
+
+of algorithm 2 is noticeably superior to the other two algorithms, especially when the data size
+
+reaches 5000.
+
+sort3 uses: Selection Sort
+
+How do you know?: The answer obtained by process of elimination, of course, shows that when facing a
+
+random dataset, its running speed is, on average, in the middle among the three.
