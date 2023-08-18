@@ -47,5 +47,16 @@ My solutions to labs and problem sets for [Harvard's CS50x 2023](https://cs50.ha
 * [Substitution](week2/pset2/substitution.c)
 * [Wordle](week2/pset2/wordle.c)
 
+## Week 3
+
+### Lab 3
+
+* [Sort](week3/lab3/sort-answers.txt)
+
+### Problem Set 3
+
+* [Plurality](week3/pset3/plurality.c)
+* [Runoff](week3/pset3/runoff.c)
+* [Tideman](week3/pset3/tideman.c)
 
 
