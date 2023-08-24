@@ -11,6 +11,8 @@ My solutions to labs and problem sets for [Harvard's CS50x 2023](https://cs50.ha
 - [Week 0: Scratch](#week-0)
 - [Week 1: C](#week-1)
 - [Week 2: Arrays](#week-2)
+- [Week 3: Algorithm](#week-3)
+- [Week 4: Memory](#week-4)
 
 
 
