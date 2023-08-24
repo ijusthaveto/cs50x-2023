@@ -59,4 +59,18 @@ My solutions to labs and problem sets for [Harvard's CS50x 2023](https://cs50.ha
 * [Runoff](week3/pset3/runoff.c)
 * [Tideman](week3/pset3/tideman.c)
 
+## Week 4
+
+### Lab 4
+
+* [Smiley](week4/lab4/helpers.c)
+* [Volume](week4/lab4/volume.c)
+
+### Problem Set 4
+
+* [Filter Less](week4/pset4/filter-less.c)
+* [Filter More](week4/pset4/filter-more.c)
+* [Recover](week4/pset4/recover.c)
+* [Reverse](week4/pset4/revserse.c)
+
 
