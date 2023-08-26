@@ -13,6 +13,7 @@ My solutions to labs and problem sets for [Harvard's CS50x 2023](https://cs50.ha
 - [Week 2: Arrays](#week-2)
 - [Week 3: Algorithm](#week-3)
 - [Week 4: Memory](#week-4)
+- [Week 5: Data Structures](#week-5)
 
 
 
@@ -74,5 +75,15 @@ My solutions to labs and problem sets for [Harvard's CS50x 2023](https://cs50.ha
 * [Filter More](week4/pset4/filter-more.c)
 * [Recover](week4/pset4/recover.c)
 * [Reverse](week4/pset4/revserse.c)
+
+## Week 5
+
+### Lab 5
+
+* [Inheritance](week5/lab5/inheritance.c)
+
+### Problem Set 5
+
+* [Speller](week5/pset5/speller.c)
 
 
