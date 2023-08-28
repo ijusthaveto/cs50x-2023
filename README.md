@@ -14,6 +14,7 @@ My solutions to labs and problem sets for [Harvard's CS50x 2023](https://cs50.ha
 - [Week 3: Algorithm](#week-3)
 - [Week 4: Memory](#week-4)
 - [Week 5: Data Structures](#week-5)
+- [Week 6: Python](#week-6)
 
 
 
@@ -87,3 +88,18 @@ My solutions to labs and problem sets for [Harvard's CS50x 2023](https://cs50.ha
 * [Speller](week5/pset5/speller.c)
 
 
+## Week 6
+
+### Lab 6
+
+* [Tournament](week6/lab6/tournament.py)
+
+### Problem Set 6
+
+* [Hello](week6/pset6/hello.py)
+* [Mario Less](week6/pset6/mario-less.py)
+* [Mario More](week6/pset6/mario-more.py)
+* [Cash](week6/pset6/cash.py)
+* [Credit](week6/pset6/credit.py)
+* [Readablity](week6/pset6/readablity.py)
+* [DNA](week6/pset6/dna.py)
