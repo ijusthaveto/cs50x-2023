@@ -1,0 +1,3 @@
+We can calculate the average values of energy, valence, and danceability for the audio aura of a listener.
+This calculation method has limitations. Therefore, we can simultaneously consider the preferences of the
+user's followers or subscribed users to perform associated calculations.
