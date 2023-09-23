@@ -1,0 +1,59 @@
+/* Custom CSS for Bootstrap styling */
+
+/* Style the header text color */
+h1,
+h2,
+h3 {
+	color: #333; /* Change the text color to a darker shade */
+}
+
+/* Add a subtle box shadow to form elements */
+.form-control {
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Style links with custom colors */
+a {
+	color: #007bff; /* Set link text color */
+	text-decoration: none; /* Remove underlines from links */
+}
+
+/* Add a subtle hover effect to links */
+a:hover {
+	color: #0056b3; /* Change link text color on hover */
+}
+
+/* Customize the background color of the navigation bar */
+.navbar {
+	background-color: #f8f9fa; /* Set a light background color for the navbar */
+}
+
+/* Style the active navigation link */
+.navbar-nav .nav-item.active .nav-link {
+	color: #333; /* Change the active link color */
+}
+
+/* Customize the background color of the active navigation link */
+.navbar-nav .nav-item.active .nav-link {
+	background-color: #007bff; /* Change the background color of the active link */
+	color: #fff; /* Set text color for the active link */
+}
+
+/* Style the container background */
+.container {
+	background-color: #fff; /* Set a white background color for containers */
+	padding: 20px; /* Add some padding to containers */
+	border-radius: 5px; /* Add rounded corners to containers */
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+}
+
+/* Style table headers */
+table thead th {
+	background-color: #007bff; /* Set a blue background color for table headers */
+	color: #fff; /* Set text color for table headers */
+}
+
+/* Style table rows on hover */
+table tbody tr:hover {
+	background-color: #f5f5f5; /* Change the background color on hover */
+}
