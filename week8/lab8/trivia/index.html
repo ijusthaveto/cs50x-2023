@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap"
+			rel="stylesheet" />
+		<link
+			href="styles.css"
+			rel="stylesheet" />
+		<title>Trivia!</title>
+		<script>
+			document.addEventListener('DOMContentLoaded', function () {
+				let correctButton = document.querySelector('.correct');
+				let wrongButton = document.querySelectorAll('.wrong');
+				let message = document.querySelector('#message');
+				correctButton.addEventListener('click', function () {
+					this.style.backgroundColor = 'green';
+					message.innerHTML = 'Correct!';
+				});
+				for (let i = 0; i < wrongButton.length; ++i) {
+					wrongButton[i].addEventListener('click', function () {
+						this.style.backgroundColor = 'red';
+						message.innerHTML = 'Incorrect!';
+					});
+				}
+                let inputAnswer = document.querySelector("#input-answer");
+                let checkButton = document.querySelector("#check-answer");
+                let responseMessage = document.querySelector('#respone-message');
+                checkButton.addEventListener('click', function() {
+                    if (inputAnswer.value === 'Switzerland') {
+                        inputAnswer.style.color = 'green';
+                        responseMessage.innerHTML = 'Correct!';
+                    } else {
+                        inputAnswer.style.color = 'red';
+                        responseMessage.innerHTML = 'Incorrect!';
+                    }
+                })
+			});
+		</script>
+	</head>
+	<body>
+		<div class="header">
+			<h1>Trivia!</h1>
+		</div>
+
+		<div class="container">
+			<div class="section">
+				<h2>Part 1: Multiple Choice </h2>
+				<hr />
+				<!-- Add multiple choice question here -->
+				<h3
+					>What is the approximate ratio of people to sheep in New
+					Zealand?</h3
+				>
+				<button class="correct">6 people per 1 sheep</button>
+				<button class="wrong">3 people per 1 sheep</button>
+				<button class="wrong">1 people per 1 sheep</button>
+				<button class="wrong">1 people per 3 sheep</button>
+				<button class="wrong">1 people per 6 sheep</button>
+				<p id="message"></p>
+			</div>
+
+			<div class="section">
+				<h2>Part 2: Free Response</h2>
+				<hr />
+				<!-- Add free response question here -->
+                <h3>In which country is it illegal to own only one guinea pig, as a lone guinea pig might get lonely?</h3>
+                <input type="text" id="input-answer"></input>
+                <button id="check-answer">Check Answer</button>
+                <p id="respone-message"></p>
+			</div>
+		</div>
+	</body>
+</html>
