@@ -53,21 +53,26 @@ def buy():
         return render_template("buy.html")
     else:
         symbol = request.form.get("symbol")
-        shares = int(request.form.get("shares"))
+        shares = request.form.get("shares")
+        stock = lookup(symbol.upper())
+        if not shares:
+            return apology("Missing Shares")
         if not symbol:
             return apology("Missing Symbol")
-        stock = lookup(symbol.upper())
-        if stock == None:
-            return apology("Invalid Symbol")
-        if shares < 0:
-            return apology("Invalid Shares")
 
+        if not stock:
+            return apology("Invalid Symbol")
+
+
+        if not shares.isdigit() or int(shares) <= 0:
+            return apology("Invalid Shares")
+        shares = int(shares)
         transaction_value = shares * stock["price"]
+
         user_id = session["user_id"]
         user_cash_db = db.execute("SELECT cash FROM users WHERE id = :id", id=user_id)
         user_cash = user_cash_db[0]["cash"]
-
-        if user_cash < transaction_value:
+        if float(user_cash) < transaction_value:
             return apology("Insufficient Balance")
 
         update_cash = user_cash - transaction_value
@@ -145,10 +150,10 @@ def quote():
         return render_template("quote.html")
     else:
         symbol = request.form.get("symbol")
+        stock = lookup(symbol.upper())
         if not symbol:
             return apology("Missing Symbol")
-        stock = lookup(symbol.upper())
-        if stock == None:
+        if not stock:
             return apology("Invalid Symbol")
 
         return render_template("quoted.html", name=stock["name"], price=stock["price"], symbol=stock["symbol"])
