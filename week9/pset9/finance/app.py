@@ -85,7 +85,9 @@ def buy():
 @login_required
 def history():
     """Show history of transactions"""
-    return apology("TODO")
+    user_id = session["user_id"]
+    transactions_db = db.execute("SELECT * FROM transactions WHERE user_id = ?", user_id)
+    return render_template("history.html", transactions=transactions_db)
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -151,7 +153,23 @@ def quote():
 
         return render_template("quoted.html", name=stock["name"], price=stock["price"], symbol=stock["symbol"])
 
+@app.route("/recharge", methods=["GET", "POST"])
+@login_required
+def recharge():
+    """Top up cash"""
+    if request.method == "GET":
+        return render_template("recharge.html")
+    else:
+        cash = int(request.form.get("cash"))
+        if not cash:
+            return apology("Invalid Cash")
+        user_id = session["user_id"]
+        user_current_cash_db = db.execute("SELECT cash FROM users WHERE id = :id", id=user_id)
+        user_current_cash = user_current_cash_db[0]["cash"]
 
+        user_update_cash = user_current_cash + cash
+        db.execute("UPDATE users SET cash = ? WHERE id = ?", user_update_cash, user_id)
+        return redirect("/")
 
 @app.route("/register", methods=["GET", "POST"])
 def register():

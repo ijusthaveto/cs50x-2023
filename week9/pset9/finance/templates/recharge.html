@@ -1,0 +1,22 @@
+{% extends "layout.html" %} {% block title %} Recharge {% endblock %} {% block
+main %}
+<h1>Recharge</h1>
+<form
+	action="/recharge"
+	method="post">
+	<div class="mb-3">
+		<input
+			autocomplete="off"
+			autofocus
+			class="form-control mx-auto w-auto"
+			name="cash"
+			placeholder="Cash"
+			type="number" />
+	</div>
+	<button
+		class="btn btn-primary"
+		type="submit"
+		>Recharge</button
+	>
+</form>
+{% endblock %}
