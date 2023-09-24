@@ -190,4 +190,38 @@ def register():
 @login_required
 def sell():
     """Sell shares of stock"""
-    return apology("TODO")
+    if request.method == "GET":
+        user_id = session["user_id"]
+        user_symbol = db.execute("SELECT symbol FROM transactions WHERE user_id = ? GROUP BY symbol HAVING SUM(shares)", user_id)
+        return render_template("sell.html", symbols=[row["symbol"] for row in user_symbol])
+    else:
+        symbol = request.form.get("symbol")
+        shares = int(request.form.get("shares"))
+        if not symbol:
+            return apology("Missing Symbol")
+        stock = lookup(symbol.upper())
+        if stock == None:
+            return apology("Invalid Symbol")
+        if shares < 0:
+            return apology("Invalid Shares")
+
+        transaction_value = shares * stock["price"]
+        user_id = session["user_id"]
+        user_cash_db = db.execute("SELECT cash FROM users WHERE id = :id", id=user_id)
+        user_cash = user_cash_db[0]["cash"]
+
+        user_shares_db = db.execute("SELECT SUM(shares) AS shares FROM transactions WHERE user_id = ? AND symbol = ? GROUP BY symbol", user_id, symbol)
+        user_shares = user_shares_db[0]["shares"]
+
+        if user_shares < shares:
+            return apology("Invalid Shares")
+
+        update_cash = user_cash + transaction_value
+        db.execute("UPDATE users SET cash = ? WHERE id = ?", update_cash, user_id)
+
+        date = datetime.datetime.now()
+        db.execute("INSERT INTO transactions (user_id, symbol, shares, price, date) VALUES(?, ?, ?, ?, ?)", user_id, stock["symbol"], (-1) * shares, stock["price"], date)
+
+        flash("Successfully Sold!")
+
+        return redirect("/")
