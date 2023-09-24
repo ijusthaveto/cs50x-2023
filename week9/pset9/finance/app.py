@@ -37,7 +37,12 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
-    return apology("TODO")
+    user_id = session["user_id"]
+    transaction_info_db = db.execute("SELECT symbol, SUM(shares) AS shares, price FROM transactions WHERE user_id = ? GROUP BY symbol", user_id)
+    user_cash_db = db.execute("SELECT cash FROM users WHERE id = ?", user_id)
+    user_cash = user_cash_db[0]["cash"]
+
+    return render_template("index.html", database=transaction_info_db, cash=user_cash)
 
 
 @app.route("/buy", methods=["GET", "POST"])
