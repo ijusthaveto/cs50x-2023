@@ -7,6 +7,8 @@ from werkzeug.security import check_password_hash, generate_password_hash
 
 from helpers import apology, login_required, lookup, usd
 
+import datetime
+
 # Configure application
 app = Flask(__name__)
 
@@ -42,7 +44,36 @@ def index():
 @login_required
 def buy():
     """Buy shares of stock"""
-    return apology("TODO")
+    if request.method == "GET":
+        return render_template("buy.html")
+    else:
+        symbol = request.form.get("symbol")
+        shares = int(request.form.get("shares"))
+        if not symbol:
+            return apology("Missing Symbol")
+        stock = lookup(symbol.upper())
+        if stock == None:
+            return apology("Invalid Symbol")
+        if shares < 0:
+            return apology("Invalid Shares")
+
+        transaction_value = shares * stock["price"]
+        user_id = session["user_id"]
+        user_cash_db = db.execute("SELECT cash FROM users WHERE id = :id", id=user_id)
+        user_cash = user_cash_db[0]["cash"]
+
+        if user_cash < transaction_value:
+            return apology("Insufficient Balance")
+
+        update_cash = user_cash - transaction_value
+        db.execute("UPDATE users SET cash = ? WHERE id = ?", update_cash, user_id)
+
+        date = datetime.datetime.now()
+        db.execute("INSERT INTO transactions (user_id, symbol, shares, price, date) VALUES(?, ?, ?, ?, ?)", user_id, stock["symbol"], shares, stock["price"], date)
+
+        flash("Successfully Bought!")
+
+        return redirect("/")
 
 
 @app.route("/history")
