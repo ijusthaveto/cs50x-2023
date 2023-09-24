@@ -125,3 +125,13 @@ My solutions to labs and problem sets for [Harvard's CS50x 2023](https://cs50.ha
 ### Problem Set 8
 
 -   [Homepage](week8/pset8/homepage)
+
+## Week 9
+
+### Lab9
+
+-   [Birthdays](week9/lab9/birthdays)
+
+### Problem Set 9
+
+-   [Finance](week9/pset9/finance)
