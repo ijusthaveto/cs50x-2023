@@ -103,7 +103,18 @@ def logout():
 @login_required
 def quote():
     """Get stock quote."""
-    return apology("TODO")
+    if request.method == "GET":
+        return render_template("quote.html")
+    else:
+        symbol = request.form.get("symbol")
+        if not symbol:
+            return apology("Missing Symbol")
+        stock = lookup(symbol.upper())
+        if stock == None:
+            return apology("Invalid Symbol")
+
+        return render_template("quoted.html", name=stock["name"], price=stock["price"], symbol=stock["symbol"])
+
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -126,13 +137,17 @@ def register():
         if password != confirmation:
             return apology("Check Your Confirmation")
 
-        hash = generate_password_hash(passowrd)
+        hash = generate_password_hash(password)
 
         try:
-            db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, hash)
+            new_user = db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, hash)
         except:
             return apology("Username Exists")
-        
+
+        session["user_id"] = new_user
+
+        return redirect("/")
+
 
 
 @app.route("/sell", methods=["GET", "POST"])
